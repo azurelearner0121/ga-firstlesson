@@ -9,6 +9,8 @@ jobs:
     - name: Lint Code
       run: |
         echo "Linting code"
+        pwd
+        ls -al
         npm run lint
     - name: Build code
       run: |
