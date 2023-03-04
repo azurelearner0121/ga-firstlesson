@@ -1,0 +1,33 @@
+name: Lint Build Test Workflow
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  prepare:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout Code
+     uses:
+   - name: Prepare Node environment
+     uses:
+   - name: Install Dependencies
+  lint:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Run Lint
+     run: |
+       npm run lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run build
+      run: |
+         npm run build
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run test
+      run: |
+         npm run test
+  
