@@ -15,18 +15,21 @@ jobs:
      run: |
         npm ci
   lint:
+   needs: prepare
    runs-on: ubuntu-latest
    steps:
    - name: Run Lint
      run: |
        npm run lint
   build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
     - name: Run build
       run: |
          npm run build
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Run test
