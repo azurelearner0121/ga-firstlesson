@@ -16,6 +16,7 @@ jobs:
         echo "Linting code"
         pwd
         ls -al
+        npm install eslint --global
         npm run lint
     - name: Build code
       run: |
