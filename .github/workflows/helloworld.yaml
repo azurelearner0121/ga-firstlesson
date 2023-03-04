@@ -9,12 +9,12 @@ jobs:
     - name: Lint Code
       run: |
         echo "Linting code"
-        npm lint
+        npm run lint
     - name: Build code
       run: |
          echo "Building code"
-         npm build
+         npm run build
     - name: Test code
       run: |
          echo "Running tests"
-         npm test
+         npm run test
