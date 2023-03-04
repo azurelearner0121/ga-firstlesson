@@ -19,11 +19,12 @@ jobs:
       run: |
         echo "Linting code"
         npm run lint
-    - name: Build code
-      run: |
-         echo "Building code"
-         npm run build
     - name: Test code
       run: |
          echo "Running tests"
          npm run test
+    - name: Build code
+      run: |
+         echo "Building code"
+         npm run build
+
