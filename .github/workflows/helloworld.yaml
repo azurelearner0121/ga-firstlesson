@@ -1,0 +1,15 @@
+name: "Build Test workflow"
+
+on: 
+  - push
+  - workflow_dispatch:
+
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      name: Say Hello
+      run: |
+         echo "Helloworld"
