@@ -6,6 +6,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Say Hello
+    - name: Lint Code
       run: |
-         echo "Helloworld"
+        echo "Linting code"
+        npm lint
+    - name: Build code
+      run: |
+         echo "Building code"
+         npm build
+    - name: Test code
+      run: |
+         echo "Running tests"
+         npm test
