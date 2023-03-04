@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3.3.0
+    - name: Prepare Environment
+      uses: actions/setup-node@v3.6.0
     - name: Lint Code
       run: |
         echo "Linting code"
