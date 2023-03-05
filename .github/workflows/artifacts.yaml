@@ -23,7 +23,7 @@ jobs:
        npm run build
     - name: Get file name
       run: |
-         find dist/assets/*.js -type f -execdir echo '{}' >> $FILE_NAME
+         find dist/assets/*.js -type f -execdir echo '{}' >> $FILE_NAME ';'
          echo "printing file name"
          echo $FILE_NAME
     - name: List files and folders
