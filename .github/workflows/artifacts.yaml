@@ -49,6 +49,11 @@ jobs:
     - name: Check downloads
       run: |
          ls -alt
+    - name: Checking file name
+      run: |
+         FILE_NAME=${{ needs.build.outputs.file-name }}
+         echo "File name is: "
+         echo $FILE_NAME
     - name: Deploy code
       run: |
        echo "Deploying Artifact"
