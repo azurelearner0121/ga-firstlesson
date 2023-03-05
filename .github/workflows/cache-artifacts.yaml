@@ -17,8 +17,10 @@ jobs:
       run: |
          echo "dir=$(npm config get cache)" >> $GITHUB_OUTPUT
     - name: Cache dependencies
-      uses: cache
-        
+      uses: actions/cache@v3.2.6
+      with:
+        path: $${{ steps.cache.outputs.dir }}
+        key: "dep-node-${{ hashFiles('**/package-lock.json') }}"        
     - name: Install dependency
       run: |
         npm ci
@@ -50,6 +52,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - name: Printing cache directory
+      run: |
+         echo ${{ needs.build.outputs.cache-dir }}
     - name: Download Artifact
       uses: actions/download-artifact@v3.0.2
       with:
