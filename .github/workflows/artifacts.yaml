@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-       file-name: ${{ github.publish.outputs.file-output}}
+       file-name: ${{ steps.publish.outputs.file-output}}
     steps:
     - name: Download Code
       uses: actions/checkout@v3.3.0
