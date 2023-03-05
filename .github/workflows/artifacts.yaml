@@ -41,7 +41,7 @@ jobs:
         name: dist-files
     - name: Check downloads
       run: |
-        'ls -alt'
+         ls -alt
     - name: Deploy code
       run: |
        echo "Deploying Artifact"
