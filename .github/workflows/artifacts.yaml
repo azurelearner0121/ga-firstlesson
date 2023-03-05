@@ -1,1 +1,49 @@
+name: Action to upload and download artifacts
 
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download Code
+      uses: actions/checkout@v3.3.0
+    - name: Install dependency
+      run: |
+        npm ci
+    - name: Lint code
+      run: |
+        npm run lint
+    - name: Test code
+      run: |
+       npm run test
+    - name: Build Code
+      run: |
+       npm run build
+    - name: List files and folders
+      run: |
+         ls -alt
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: dist-files
+        path: |
+          dist
+          package.json
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download Artifact
+      uses: actions/download-artifact@v3.0.2
+      with:
+        name: dist-files
+    - name: Check downloads
+      run: |
+        'ls -alt'
+    - name: Deploy code
+      run: |
+       echo "Deploying Artifact"
+      
+      
