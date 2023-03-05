@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+       file-name: ${{ github.publish.outputs.file-output}}
     steps:
     - name: Download Code
       uses: actions/checkout@v3.3.0
@@ -22,10 +24,10 @@ jobs:
       run: |
        npm run build
     - name: Get file name
+      id: publish
       run: |
-         find dist/assets/*.js -type f -execdir echo '{}' >> $FILE_NAME ';'
-         echo "printing file name"
-         echo $FILE_NAME
+         find dist/assets/*.js -type f -execdir echo 'file-output={}' >> $GITHUB_OUTPUT ';'
+         echo $GITHUB_OUPUT
     - name: List files and folders
       run: |
          ls -alt
